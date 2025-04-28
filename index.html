@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clickable Image with Sound & Position</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        position: relative; /* important for absolute positioning inside */
+      }
+
+      .container {
+        position: absolute;
+        top: 400px; /* adjust this */
+        left: 850px; /* adjust this */
+        /* You can use bottom/right instead if you want too */
+        text-align: center;
+      }
+
+      img {
+        width: 200px;
+        cursor: pointer;
+        border: 2px solid black;
+        border-radius: 10px;
+        animation: slowShake 3s infinite ease-in-out;
+        position: relative;
+      }
+
+      @keyframes slowShake {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-5px, 5px); }
+        50% { transform: translate(5px, -5px); }
+        75% { transform: translate(-5px, -5px); }
+        100% { transform: translate(0, 0); }
+      }
+
+      img:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="https://robloxian-is-coming.glitch.me" id="clickable-image">
+        <img
+          id="image"
+          src="https://cdn.glitch.global/c91ba31a-037b-49eb-b3a8-2fa38dc15b87/2329510_7884a_eyeball_creepy_gif___Google_Search.gif?v=1745852187544"
+          alt="Clickable Image"
+        />
+      </a>
+    </div>
+
+    <audio
+      id="click-sound"
+      src="https://cdn.glitch.global/c91ba31a-037b-49eb-b3a8-2fa38dc15b87/2329510_7884a_eyeball_creepy_gif___Google_Search.gif?v=1745852187544"
+    ></audio>
+
+    <script>
+      const clickableImage = document.getElementById("clickable-image");
+      const imageElement = document.getElementById("image");
+      const clickSound = document.getElementById("click-sound");
+
+      clickableImage.addEventListener("click", function (event) {
+        event.preventDefault(); // stop instant redirect!
+
+        clickSound.play(); // Play sound
+
+        setTimeout(() => {
+          imageElement.src =
+            "https://cdn.glitch.global/c91ba31a-037b-49eb-b3a8-2fa38dc15b87/image%20(21).png?v=1745858082560";
+        }, 100); // Change image after 0.5s
+
+        setTimeout(() => {
+          window.location.href = clickableImage.href; // Redirect after 2s
+        }, 400);
+      });
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Music</title>
+</head>
+<body>
+
+    <h1>Welcome to My Website</h1>
+    <p>This page has background music playing!</p>
+
+    <!-- Audio element for background music -->
+    <audio autoplay loop>
+        <source src="https://cdn.glitch.me/c91ba31a-037b-49eb-b3a8-2fa38dc15b87/Haunted%20Crypt%20Sounds%20%20Dark%20Ambient.mp3?v=1745858210984">
+        Your browser does not support the audio element.
+    </audio>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stretch Background</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Stretch Background Effect</h1>
+</body>
+<script src="script.js"></script>
+</html>
